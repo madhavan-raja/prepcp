@@ -1,2 +1,2 @@
-# prepcp
-Competitive Programming setup
+# Prep CP
+Creates files for Competitive Programming setup
