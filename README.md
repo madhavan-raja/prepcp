@@ -1,0 +1,2 @@
+# prepcp
+Competitive Programming setup
