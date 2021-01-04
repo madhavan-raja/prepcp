@@ -3,47 +3,67 @@
 #include <windows.h>
 
 #define TEMPLATE "C:\\prepcp\\template.cpp"
+#define MAKEFILE "C:\\prepcp\\Makefile"
 #define INPUT_FILE "input.txt"
 
 int main(int argc, char* argv[])
 {
-    char path[100], inpPath[100];
-    char ch;
+  char codePath[100], makefilePath[100], inputPath[100];
+  char ch;
 
-    FILE *src, *tgt, *inp;
+  FILE *codeSrc, *codeTgt, *mfSrc, *mfTgt, *inp;
 
-    for (int i = 1; i < argc; ++i)
-    {
-        printf("[%d/%d]: %s\t\t", i, argc - 1, argv[i]);
-        CreateDirectory(argv[i], NULL);
+  for (int i = 1; i < argc; ++i) {
+    printf("[%d/%d]: %s - ", i, argc - 1, argv[i]);
+    CreateDirectory(argv[i], NULL);
 
-        strcpy(path, argv[i]);
-        strcat(path, "\\");
-        strcat(path, argv[i]);
-        strcat(path, ".cpp");
+    strcpy(codePath, argv[i]);
+    strcat(codePath, "\\");
+    strcat(codePath, argv[i]);
+    strcat(codePath, ".cpp");
 
-        strcpy(inpPath, argv[i]);
-        strcat(inpPath, "\\");
-        strcat(inpPath, INPUT_FILE);
+    strcpy(inputPath, argv[i]);
+    strcat(inputPath, "\\");
+    strcat(inputPath, INPUT_FILE);
 
-        src = fopen(TEMPLATE, "r");
-        tgt = fopen(path, "w");
+    strcpy(makefilePath, argv[i]);
+    strcat(makefilePath, "\\");
+    strcat(makefilePath, "Makefile");
 
-        while ((ch = fgetc(src)) != EOF)
-            fputc(ch, tgt);
-        printf("Written to %s\t\t", path);
+    codeSrc = fopen(TEMPLATE, "r");
+    codeTgt = fopen(codePath, "w");
 
-        inp = fopen(inpPath, "w");
-        printf("Made %s\t\t", inpPath);
+    while ((ch = fgetc(codeSrc)) != EOF)
+      fputc(ch, codeTgt);
+    // printf("TEMPLATE DONE. ");
 
-        fclose(src);
-        fclose(tgt);
-        fclose(inp);
+    fclose(codeSrc);
+    fclose(codeTgt);
 
-        printf("Finished for %s\n", argv[i]);
+    mfSrc = fopen(MAKEFILE, "r");
+    mfTgt = fopen(makefilePath, "w");
+
+    while ((ch = fgetc(mfSrc)) != EOF) {
+      if (ch != '%')
+        fputc(ch, mfTgt);
+      else
+        fputs(argv[i], mfTgt);
     }
+    // printf("MAKEFILE DONE. ");
 
-    printf("Finished everything.\n");
+    fclose(mfSrc);
+    fclose(mfTgt);
 
-    return 0;
+    inp = fopen(inputPath, "w");
+    // printf("INPUT DONE. ");
+
+    fclose(inp);
+
+    // printf("Finished %s.\n", argv[i]);
+    printf("Done\n");
+  }
+
+  printf("Finished\n");
+
+  return 0;
 }
