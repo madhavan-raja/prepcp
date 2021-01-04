@@ -1,12 +1,11 @@
-CC = g++
+CC = gcc
 
-CFLAGS = -std=c++14 -Wshadow -Wall
+CFLAGS = -o $(TARGET)
 
-TARGET = %
+TARGET = prep
 
 $(TARGET): $(TARGET).cpp
 	$(CC) $(CFLAGS) $(TARGET).cpp
-	a.exe < input.txt
 
 clean:
 	$(RM) $(TARGET)
