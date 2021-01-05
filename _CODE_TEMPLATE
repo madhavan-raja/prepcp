@@ -1,5 +1,4 @@
 #define DEBUG 1
-#define TEST_CASE 1
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -36,20 +35,16 @@ void _debugDisp(ll e)
 void DEBUGFUNC(ll v)
 {
   #if DEBUG
-
   _debugDisp(v);
-
   #endif
 }
 
 void DEBUGFUNC(vt<ll> v)
 {
   #if DEBUG
-
   for (auto e : v) {
     _debugDisp(e);
   }
-  
   #endif
 }
 
@@ -65,10 +60,7 @@ int main()
   cout.tie(NULL);
     
   ll c = 1;
-
-  #if TEST_CASE
   cin >> c;
-  #endif
 
   for (ll i = 1; i <= c; ++i) {
     // cout << "Case #" << i << ": ";

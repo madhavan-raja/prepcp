@@ -4,8 +4,8 @@ CFLAGS = -o $(TARGET)
 
 TARGET = prep
 
-$(TARGET): $(TARGET).cpp
-	$(CC) $(CFLAGS) $(TARGET).cpp
+$(TARGET): $(TARGET).c
+	$(CC) $(CFLAGS) $(TARGET).c
 
 clean:
 	$(RM) $(TARGET)
