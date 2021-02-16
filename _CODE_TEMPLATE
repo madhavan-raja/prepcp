@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define mod 1e9 + 7
+#define mod (ll)(1e9 + 7)
 #define endl '\n'
 
 #define ll long long int
