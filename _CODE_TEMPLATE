@@ -78,6 +78,12 @@ void _debug_print(T t, V... v) {
 #endif
 
 void solve() {
+  ll n;
+  cin >> n;
+
+  vt<ll> a(n);
+  for (auto &e : a) cin >> e;
+
   //
 }
 
