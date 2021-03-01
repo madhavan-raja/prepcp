@@ -23,6 +23,36 @@ using namespace std;
 #define F(i, end) LF(i, 0, end)
 #define R(i, end) LR(i, end, 0)
 
+ll fast_pow(ll a, ll p) {
+  ll res = 1;
+
+  while (p) {
+    if (p % 2 == 0) {
+      a = a * a % mod;
+      p /= 2;
+    } else {
+      res = res * a % mod;
+      p--;
+    }
+  }
+
+  return res;
+}
+
+ll fact(ll n) {
+  ll res = 1;
+
+  LF(i, 1, n + 1) {
+    res = res * i % mod;
+  }
+
+  return res;
+}
+
+int NCR(ll n, ll r) {
+  return fact(n) * 1ll * fast_pow(fact(r), mod - 2) % mod * 1ll * fast_pow(fact(n - r), mod - 2) % mod;
+}
+
 void __debug_print(int x) {cerr << x;}
 void __debug_print(long x) {cerr << x;}
 void __debug_print(long long x) {cerr << x;}
