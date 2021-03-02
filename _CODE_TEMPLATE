@@ -49,7 +49,7 @@ ll fact(ll n) {
   return res;
 }
 
-int NCR(ll n, ll r) {
+ll NCR(ll n, ll r) {
   return fact(n) * 1ll * fast_pow(fact(r), mod - 2) % mod * 1ll * fast_pow(fact(n - r), mod - 2) % mod;
 }
 
