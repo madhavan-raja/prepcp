@@ -125,7 +125,7 @@ int main() {
   ll c = 1;
   cin >> c;
 
-  for (ll i = 1; i <= c; ++i) {
+  LF(i, 1, c + 1) {
     // cout << "Case #" << i << ": ";
     solve();
   }
