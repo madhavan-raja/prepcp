@@ -23,6 +23,8 @@ using namespace std;
 #define F(i, end) LF(i, 0, end)
 #define R(i, end) LR(i, end, 0)
 
+#define all(col) col.begin(), col.end()
+
 ll fast_pow(ll a, ll p) {
   ll res = 1;
 
