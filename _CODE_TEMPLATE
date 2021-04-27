@@ -8,7 +8,6 @@ using namespace std;
 #define ull unsigned ll
 
 #define pll pair<ll, ll>
-
 #define ld long double
 
 #define vt vector
