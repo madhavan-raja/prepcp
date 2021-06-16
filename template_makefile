@@ -2,11 +2,11 @@ CC = g++
 
 CFLAGS = -std=c++14 -Wshadow -Wall -Wextra
 
-TARGET = %
+TARGET = PROG
 
 $(TARGET): $(TARGET).cpp
 	$(CC) $(CFLAGS) $(TARGET).cpp
-	a.exe < input.txt
+	./a.out < INPUTFILE_NAME
 
 clean:
 	$(RM) $(TARGET)
