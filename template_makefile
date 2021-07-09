@@ -6,7 +6,7 @@ TARGET = PROG
 
 $(TARGET): $(TARGET).cpp
 	$(CC) $(CFLAGS) $(TARGET).cpp
-	./a.out < INPUTFILE_NAME
+	EXEC < INPUTFILE_NAME
 
 clean:
 	$(RM) $(TARGET)
