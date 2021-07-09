@@ -3,12 +3,15 @@
 import os
 import sys
 import tqdm
+from sys import platform
 
 BASE_PATH = os.path.dirname(os.path.realpath(__file__))
 
 CODE_TEMPLATE = os.path.join(BASE_PATH, 'template_code.cpp')
 MAKEFILE_TEMPLATE = os.path.join(BASE_PATH, 'template_makefile')
 INPUTFILE_NAME = 'input.txt'
+
+EXEC = 'a.exe' if platform == 'win32' else './a.out'
 
 
 def main():
@@ -41,6 +44,7 @@ def main():
 
         makefile_contents = makefile_contents.replace('PROG', prog)
         makefile_contents = makefile_contents.replace('INPUTFILE_NAME', INPUTFILE_NAME)
+        makefile_contents = makefile_contents.replace('EXEC', EXEC)
 
         with open(makefile_path, 'w') as fout:
             fout.write(makefile_contents)
