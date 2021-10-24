@@ -2,7 +2,6 @@
 
 import os
 import sys
-import tqdm
 from sys import platform
 
 BASE_PATH = os.path.dirname(os.path.realpath(__file__))
@@ -17,7 +16,7 @@ EXEC = 'a.exe' if platform == 'win32' else './a.out'
 def main():
     progs = sys.argv[1:] # Ignore the calling script name
 
-    for prog in tqdm.tqdm(progs):
+    for prog in progs:
         if not os.path.exists(prog):
             os.mkdir(prog)
 
