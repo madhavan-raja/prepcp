@@ -5,58 +5,8 @@ using namespace std;
 #define endl '\n'
 
 #define ll long long int
-#define ull unsigned ll
-
-#define pll pair<ll, ll>
-#define ld long double
-
-#define vt vector
-#define uset unordered_set
-#define umap unordered_map
-#define mset multiset
-#define umset unordered_multiset
-
-#define in insert
-#define pb push_back
-#define ff first
-#define ss second
-
-#define LF(i, beg, end) for (ll i = beg; i < end; ++i)
-#define LR(i, end, beg) for (ll i = end; i >= beg; --i)
-#define F(i, end) LF(i, 0, end)
-#define R(i, end) LR(i, end, 0)
 
 #define all(col) (col).begin(), (col).end()
-
-ll fast_pow(ll a, ll p) {
-  ll res = 1;
-
-  while (p) {
-    if (p % 2 == 0) {
-      a = a * a % mod;
-      p /= 2;
-    } else {
-      res = res * a % mod;
-      p--;
-    }
-  }
-
-  return res;
-}
-
-ll fact(ll n) {
-  ll res = 1;
-
-  LF(i, 1, n + 1) {
-    res = res * i % mod;
-  }
-
-  return res;
-}
-
-ll NCR(ll n, ll r) {
-  return fact(n) * 1ll * fast_pow(fact(r), mod - 2) % mod * 1ll * fast_pow(fact(n - r), mod - 2) % mod;
-}
 
 void __debug_print(int x) {cerr << x;}
 void __debug_print(long x) {cerr << x;}
@@ -116,7 +66,7 @@ void solve() {
   ll n;
   cin >> n;
 
-  vt<ll> a(n);
+  vector<ll> a(n);
   for (auto &e : a) cin >> e;
 
   //
@@ -130,7 +80,7 @@ int main() {
   ll c = 1;
   cin >> c;
 
-  LF(i, 1, c + 1) {
+  for (ll i = 1; i <= c; ++i) {
     // cout << "Case #" << i << ": ";
     solve();
   }
