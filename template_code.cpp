@@ -54,12 +54,43 @@ void _debug_print(T t, V... v) {
   _debug_print(v...);
 }
 
+ll power(ll x, ll y) {
+  ll res = 1;
+
+  while (y > 0) {
+    if (y & 1) {
+      res = (res * x) % mod;
+    }
+
+    y >>= 1;
+    x = (x * x) % mod;
+  }
+
+  return res;
+}
+
+ll modInv(ll n) {
+  return power(n, mod - 2);
+}
+
+ll ncr(ll n, ll r) {
+  if (n < r) return 0;
+  if (r == 0) return 1;
+
+  vector<ll> fact(n + 1);
+  fact[0] = 1;
+
+  for (ll i = 1; i <= n; ++i) {
+    fact[i] = (fact[i - 1] * i) % mod;
+  }
+
+  return (fact[n] * modInv(fact[r]) % mod * modInv(fact[n - r]) % mod) % mod;
+}
+
 #ifdef ONLINE_JUDGE
 #define debug(x...)
-#define CLOCK
 #else
 #define debug(x...) cerr << "[" << #x << " = "; _debug_print(x);
-#define CLOCK cerr << "Time : " << 1000 * ((double)clock()) / (double)CLOCKS_PER_SEC << "ms" << endl
 #endif
 
 void solve() {
@@ -85,7 +116,5 @@ int main() {
     solve();
   }
 
-  CLOCK;
-    
   return 0;
 }
