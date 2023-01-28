@@ -7,6 +7,7 @@ from sys import platform
 BASE_PATH = os.path.dirname(os.path.realpath(__file__))
 
 CODE_TEMPLATE = os.path.join(BASE_PATH, 'template_code.cpp')
+DEBUG_TEMPLATE = os.path.join(BASE_PATH, 'template_debug.cpp')
 MAKEFILE_TEMPLATE = os.path.join(BASE_PATH, 'template_makefile')
 INPUTFILE_NAME = 'input.txt'
 
@@ -30,6 +31,17 @@ def main():
 
         with open(code_path, 'w') as fout:
             fout.write(code_contents)
+
+        # Debug
+
+        debug_path = os.path.join(prog, 'debug.cpp')
+        debug_contents = ''
+
+        with open(DEBUG_TEMPLATE, 'r') as fin:
+            debug_contents = fin.read()
+
+        with open(debug_path, 'w') as fout:
+            fout.write(debug_contents)
 
         # Makefile
 
