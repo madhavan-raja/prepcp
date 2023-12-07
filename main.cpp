@@ -19,8 +19,7 @@ void solve() {
   vector<ll> a(n);
   for (auto &e : a) cin >> e;
   
-  for (auto e : a) cout << e << " ";
-  cout << endl;
+  debug(a);
 }
 
 int main() {
