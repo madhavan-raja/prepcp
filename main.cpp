@@ -13,13 +13,14 @@ using namespace std;
 #endif
 
 void solve() {
-  ll n;
+  string order;
+  cin >> order;
+
+  int n;
   cin >> n;
 
-  vector<ll> a(n);
-  for (auto &e : a) cin >> e;
-  
-  debug(a);
+  for (auto e : ans) cout << e << " ";
+  cout << endl;
 }
 
 int main() {
